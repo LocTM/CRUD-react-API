@@ -13,10 +13,10 @@ export default function Home(){
     }, [isDelete]);
 
     const handleDelete = (id) => {
-        const confirm = window.confirm("Ban muon xoa phai khong");
+        const confirm = window.confirm("Bạn chắc chắn muốn xóa?");
         if (confirm){
             axios.delete('http://localhost:3001/students/' + id).then(res =>{
-                alert("Xoa thanh cong");
+                alert("Xóa thành công");
               setIsDelete(!isDelete)
 
             })
@@ -24,34 +24,34 @@ export default function Home(){
     }
     return(
         <>
-            <h1>DANH SACH SINH VIEN</h1>
-            <Link to = {"/create"}><button>THEM SINH VIEN</button></Link>
-            <table>
+            <div className={"containerH"} >
+            <h1>DANH SÁCH SINH VIÊN</h1>
+            <Link to = {"/create"}><button type="button" className="btn btn-success">+ Thêm sinh viên</button></Link>
+            <table className={"table"} >
                 <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Ten Sinh vien</th>
-                    <th>Mo ta</th>
-                    <th> Score</th>
-                    <th> Action</th>
+                    <th scope="col">#</th>
+                    <th scope="col">Tên sinh viên</th>
+                    <th scope="col">Mô tả</th>
+                    <th scope="col">Điểm</th>
+                    <th scope="col">Hành động</th>
                 </tr>
                 </thead>
                 <tbody>
                 {student.map((student, index) => (
                     <tr>
                         <th scope="row">{index + 1}</th>
-                        <td><Link to={"read/" + student.id} >{student.name}</Link></td>
+                        <td ><Link to={"read/" + student.id} >{student.name}</Link></td>
                         <td>{student.description}</td>
                         <td>{student.score}</td>
                         <td>
-                            <button onClick={event => handleDelete(student.id)}>Delete</button>
-                            <Link to={"edit/" + student.id}><button>Edit</button></Link>
-                        </td>
+                            <button type="button" className="btn btn-outline-danger" onClick={event => handleDelete(student.id)}>Delete</button>
+                            <Link to={"edit/" + student.id}><button type="button" className="btn btn-outline-warning">Edit</button></Link></td>
                     </tr>
                 ))}
                 </tbody>
             </table>
-
+            </div>
         </>
     )
 }

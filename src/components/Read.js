@@ -1,7 +1,7 @@
 export default function Read(){
     return(
         <>
-            <h1>THONG TIN SINH VIEN</h1>
+            <h1>Thông tin sinh viên</h1>
         </>
     )
 }
