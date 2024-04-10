@@ -7,6 +7,7 @@ import Read from "./components/Read";
 import Update from "./components/Update";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
+
 function App() {
   return (
    <>

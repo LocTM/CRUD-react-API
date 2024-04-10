@@ -1,4 +1,4 @@
-import {Link, useNavigate} from "react-router-dom";
+import {Link, Outlet, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
@@ -24,10 +24,8 @@ export default function Home(){
     }
     return(
         <>
-            <h1>DAY LA TRANG HOME</h1>
             <h1>DANH SACH SINH VIEN</h1>
             <Link to = {"/create"}><button>THEM SINH VIEN</button></Link>
-
             <table>
                 <thead>
                 <tr>
