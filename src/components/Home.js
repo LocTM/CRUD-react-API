@@ -47,7 +47,7 @@ export default function Home(){
                         <td>{student.score}</td>
                         <td>
                             <button onClick={event => handleDelete(student.id)}>Delete</button>
-                            <button>Edit</button>
+                            <Link to={"edit/" + student.id}><button>Edit</button></Link>
                         </td>
                     </tr>
                 ))}
